@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{73FD70EA-8B00-40E4-BEB2-4E5EAEB8EE45}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>WarGames</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\..\..\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;UDPSERV;_CRT_SECURE_NO_WARNINGS;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external;$(ProjectDir)..\..\..\external\mysql;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmariadb.lib;WS2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\damageCalculator.cpp" />
+    <ClCompile Include="..\..\..\src\game.cpp" />
+    <ClCompile Include="..\..\..\src\lib\malloc.cpp" />
+    <ClCompile Include="..\..\..\src\lib\showmsg.cpp" />
+    <ClCompile Include="..\..\..\src\lib\socket.cpp" />
+    <ClCompile Include="..\..\..\src\lib\sql.cpp" />
+    <ClCompile Include="..\..\..\src\lib\strlib.cpp" />
+    <ClCompile Include="..\..\..\src\lib\taskmgr.cpp" />
+    <ClCompile Include="..\..\..\src\lib\timer.cpp" />
+    <ClCompile Include="..\..\..\src\lib\utils.cpp" />
+    <ClCompile Include="..\..\..\src\lobby.cpp" />
+    <ClCompile Include="..\..\..\src\main.cpp" />
+    <ClCompile Include="..\..\..\src\Map.cpp" />
+    <ClCompile Include="..\..\..\src\MapBuilder.cpp" />
+    <ClCompile Include="..\..\..\src\moveValidator.cpp" />
+    <ClCompile Include="..\..\..\src\packets\account_creation.cpp" />
+    <ClCompile Include="..\..\..\src\packets\action.cpp" />
+    <ClCompile Include="..\..\..\src\packets\entity_update.cpp" />
+    <ClCompile Include="..\..\..\src\packets\game_load.cpp" />
+    <ClCompile Include="..\..\..\src\packets\game_over.cpp" />
+    <ClCompile Include="..\..\..\src\packets\lobby_chat.cpp" />
+    <ClCompile Include="..\..\..\src\packets\lobby_countdown.cpp" />
+    <ClCompile Include="..\..\..\src\packets\lobby_list.cpp" />
+    <ClCompile Include="..\..\..\src\packets\lobby_update.cpp" />
+    <ClCompile Include="..\..\..\src\packets\login.cpp" />
+    <ClCompile Include="..\..\..\src\packets\packet.cpp" />
+    <ClCompile Include="..\..\..\src\packets\player_defeated.cpp" />
+    <ClCompile Include="..\..\..\src\packets\player_definition.cpp" />
+    <ClCompile Include="..\..\..\src\packets\player_update.cpp" />
+    <ClCompile Include="..\..\..\src\packets\post_game.cpp" />
+    <ClCompile Include="..\..\..\src\packets\turn_change.cpp" />
+    <ClCompile Include="..\..\..\src\packet_handler.cpp" />
+    <ClCompile Include="..\..\..\src\player.cpp" />
+    <ClCompile Include="..\..\..\src\server.cpp" />
+    <ClCompile Include="..\..\..\src\Terrain.cpp" />
+    <ClCompile Include="..\..\..\src\TerrainBuilder.cpp" />
+    <ClCompile Include="..\..\..\src\test\test.cpp" />
+    <ClCompile Include="..\..\..\src\test\testMap.cpp" />
+    <ClCompile Include="..\..\..\src\test\testTerrain.cpp" />
+    <ClCompile Include="..\..\..\src\test\testUnit.cpp" />
+    <ClCompile Include="..\..\..\src\Unit.cpp" />
+    <ClCompile Include="..\..\..\src\UnitBuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\damageCalculator.h" />
+    <ClInclude Include="..\..\..\src\game.h" />
+    <ClInclude Include="..\..\..\src\lib\cbasetypes.h" />
+    <ClInclude Include="..\..\..\src\lib\malloc.h" />
+    <ClInclude Include="..\..\..\src\lib\showmsg.h" />
+    <ClInclude Include="..\..\..\src\lib\socket.h" />
+    <ClInclude Include="..\..\..\src\lib\sql.h" />
+    <ClInclude Include="..\..\..\src\lib\strlib.h" />
+    <ClInclude Include="..\..\..\src\lib\taskmgr.h" />
+    <ClInclude Include="..\..\..\src\lib\timer.h" />
+    <ClInclude Include="..\..\..\src\lib\utils.h" />
+    <ClInclude Include="..\..\..\src\lobby.h" />
+    <ClInclude Include="..\..\..\src\Map.h" />
+    <ClInclude Include="..\..\..\src\MapBuilder.h" />
+    <ClInclude Include="..\..\..\src\moveValidator.h" />
+    <ClInclude Include="..\..\..\src\packets\account_creation.h" />
+    <ClInclude Include="..\..\..\src\packets\action.h" />
+    <ClInclude Include="..\..\..\src\packets\entity_update.h" />
+    <ClInclude Include="..\..\..\src\packets\game_load.h" />
+    <ClInclude Include="..\..\..\src\packets\game_over.h" />
+    <ClInclude Include="..\..\..\src\packets\lobby_chat.h" />
+    <ClInclude Include="..\..\..\src\packets\lobby_countdown.h" />
+    <ClInclude Include="..\..\..\src\packets\lobby_list.h" />
+    <ClInclude Include="..\..\..\src\packets\lobby_update.h" />
+    <ClInclude Include="..\..\..\src\packets\login.h" />
+    <ClInclude Include="..\..\..\src\packets\packet.h" />
+    <ClInclude Include="..\..\..\src\packets\player_defeated.h" />
+    <ClInclude Include="..\..\..\src\packets\player_definition.h" />
+    <ClInclude Include="..\..\..\src\packets\player_update.h" />
+    <ClInclude Include="..\..\..\src\packets\post_game.h" />
+    <ClInclude Include="..\..\..\src\packets\turn_change.h" />
+    <ClInclude Include="..\..\..\src\packet_handler.h" />
+    <ClInclude Include="..\..\..\src\player.h" />
+    <ClInclude Include="..\..\..\src\server.h" />
+    <ClInclude Include="..\..\..\src\Terrain.h" />
+    <ClInclude Include="..\..\..\src\TerrainBuilder.h" />
+    <ClInclude Include="..\..\..\src\test\test.h" />
+    <ClInclude Include="..\..\..\src\TypeEnums.h" />
+    <ClInclude Include="..\..\..\src\Unit.h" />
+    <ClInclude Include="..\..\..\src\UnitBuilder.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
